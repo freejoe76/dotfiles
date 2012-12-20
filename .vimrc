@@ -6,6 +6,8 @@ set history=100
 set scrolloff=3
 set wildmenu
 
+call pathogen#infect()
+
 imap jj <Esc>
 
 " Map the leader key. Instead of \, it's now ,
