@@ -8,6 +8,9 @@ set wildmenu
 
 call pathogen#infect()
 
+autocmd vimenter * NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+
 imap jj <Esc>
 
 " Map the leader key. Instead of \, it's now ,
