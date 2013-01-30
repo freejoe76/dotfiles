@@ -5,7 +5,7 @@ set hidden
 set history=100
 set scrolloff=3
 set wildmenu
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 
 call pathogen#infect()
 
