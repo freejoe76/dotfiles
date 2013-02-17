@@ -31,7 +31,7 @@ cmap Bn bn
 cmap BN bn
 cmap Bp bp
 cmap BP bp
-cmap Bclose bclose
+cmap bclose Bclose
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
