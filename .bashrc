@@ -1,3 +1,5 @@
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
