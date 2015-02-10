@@ -1,3 +1,8 @@
+alias bp='vi ~/.bashrc'
+alias bps='source ~/.bashrc'
+
+
+alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 # append to the history file, don't overwrite it
@@ -43,4 +48,10 @@ nh() {
     nohup "$@" &>/dev/null &
 }
 
-
+# load virtualenvwrapper for python (after custom PATHs)
+venvwrap="virtualenvwrapper.sh"
+/usr/bin/which -s $venvwrap
+if [ $? -eq 0 ]; then
+    venvwrap=`/usr/bin/which $venvwrap`
+    source $venvwrap
+fi
