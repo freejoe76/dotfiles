@@ -10,6 +10,13 @@ set tabstop=4
 set shiftwidth=4 
 set number
 
+" Retab shortcuts.
+set et|retab
+" Spaces to tabs:
+set noet|retab!
+" SuperRetab (only indentions), via http://vim.wikia.com/wiki/Super_retab
+command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
 call pathogen#infect()
 
 autocmd vimenter * NERDTree
@@ -55,7 +62,7 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp " directory to place swap files in
 set fileformats=unix,dos,mac " support all three, in this order
 set iskeyword+=_,$,@,%,# " none of these are word dividers 
-set mouse=a " use mouse everywhere
+"set mouse=a " use mouse everywhere
 set noerrorbells " don't make noise
 
 set laststatus=2 " always show the status line
