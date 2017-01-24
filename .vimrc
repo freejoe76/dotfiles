@@ -2,7 +2,7 @@ set title
 set ruler
 set showcmd
 set hidden
-set history=100
+set history=200
 set scrolloff=3
 set wildmenu
 set expandtab
@@ -10,12 +10,15 @@ set tabstop=4
 set shiftwidth=4 
 set number
 
-" Retab shortcuts.
-set et|retab
 " Spaces to tabs:
 set noet|retab!
+" Retab shortcuts.
+set et|retab
 " SuperRetab (only indentions), via http://vim.wikia.com/wiki/Super_retab
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
+" Tabs on PHP files
+autocmd Filetype php setlocal noexpandtab
 
 call pathogen#infect()
 
@@ -28,10 +31,8 @@ imap jj <Esc>
 let mapleader = ","
 
 " Shift key fixes
-cmap W w
 cmap WQ wq
 cmap wQ wq
-cmap Q q
 cmap Tabe tabe
 cmap Bq bq
 cmap Bn bn
@@ -79,4 +80,6 @@ nmap <S-Tab> gT
 " When vimrc is edited, reload it
 " if you install this somewhere other than ~/.vim, you'll need to change the
 " last argument
-autocmd! bufwritepost vimrc source ~/.vim/vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
+" Auto-close nerdtree on exit
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

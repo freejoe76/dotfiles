@@ -1,16 +1,16 @@
-alias bp='vi ~/.bashrc'
-alias bps='source ~/.bashrc'
+shopt -s extglob
 
+export NODE_PATH="/usr/local/Cellar/node/0.10.31/lib/node_modules"
 
 alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/Applications/MAMP/Library/bin:/Users/joemurphy/pear/bin:/Users/joemurphy/pear/share/pear:$PATH"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=25500
+HISTSIZE=15000
+HISTFILESIZE=125500
 HISTIGNORE="&:ls:[bf]g:exit"
 HISTTIMEFORMAT="%F %T "
 PROMPT_COMMAND='history -a'
@@ -55,3 +55,21 @@ if [ $? -eq 0 ]; then
     venvwrap=`/usr/bin/which $venvwrap`
     source $venvwrap
 fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+alias bps='source ~/.bashrc'
+alias bp='vi ~/.bashrc'
+alias ss='source source.bash || source ../source.bash || source ../../source.bash'
+alias crimes='cd ~/work/crime; ss; cd crimeparse'
+alias sites='cd ~/work/crimesite; ss; cd site/public'
+alias miseries='cd ~/work/misery-index/; ss'
+alias sads='cd ~/work/sad_ebook/; ss'
+alias preps='cd ~/work/preps/; ss'
+export WORKON_HOME=~/Env
