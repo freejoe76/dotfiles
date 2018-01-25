@@ -22,6 +22,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lowercase='for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done'
 
+# Edit the last-edited file in the directory you're in.
+alias vil='vi `ls -t | head -n 1`'
+alias vim='/usr/loc
+
 ex () {
     if [ -f $1 ] ; then
         case $1 in
