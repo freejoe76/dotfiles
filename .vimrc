@@ -10,6 +10,12 @@ set tabstop=4
 set shiftwidth=4 
 set number
 
+" NOTES
+" Capitalize the first letter of each line
+" :%s#^\(.\{1}\)#\U\1#g
+" Capitalize every letter that follows a space
+" :%s# \(.\{1}\)# \U\1#g
+
 " Retab shortcuts.
 set et|retab
 " Spaces to tabs:
