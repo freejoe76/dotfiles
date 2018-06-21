@@ -2,7 +2,6 @@ shopt -s extglob
 
 export NODE_PATH="/usr/local/Cellar/node/0.10.31/lib/node_modules"
 
-alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/Applications/MAMP/Library/bin:/Users/joemurphy/pear/bin:/Users/joemurphy/pear/share/pear:$PATH"
 
 # append to the history file, don't overwrite it
@@ -67,9 +66,17 @@ fi
 alias bps='source ~/.bashrc'
 alias bp='vi ~/.bashrc'
 alias ss='source source.bash || source ../source.bash || source ../../source.bash'
+alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
 alias crimes='cd ~/work/crime; ss; cd crimeparse'
 alias sites='cd ~/work/crimesite; ss; cd site/public'
-alias miseries='cd ~/work/misery-index/; ss'
-alias sads='cd ~/work/sad_ebook/; ss'
-alias preps='cd ~/work/preps/; ss'
+alias sads='cd ~/sad_ebook/; ss'
+alias phperr='tail -f /Applications/MAMP/logs/php_error.log'
+alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
 export WORKON_HOME=~/Env
+#export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+# Edit the last-edited file in the directory you're in.
+alias vil='vi `ls -t | head -n 1`'
+alias vim='/usr/local/bin/vim'
+
+#eval $(thefuck --alias)
+git config --global core.editor /usr/bin/vim
