@@ -76,3 +76,5 @@ complete -o nospace -F _wp_complete wp
 
 # added by Anaconda3 4.2.0 installer
 #export PATH="/Users/joemurphy/anaconda3/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
