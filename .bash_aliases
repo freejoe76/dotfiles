@@ -22,3 +22,5 @@ alias dqa='deployqa'
 alias dprod='deployprod'
 alias pq='`^prod^qa`'
 alias qp='`^qa^prod`'
+# Make the command-line stat command on the mac less janky:
+alias stat='stat -x'
