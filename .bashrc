@@ -3,6 +3,7 @@ shopt -s extglob
 export NODE_PATH="/usr/local/Cellar/node/0.10.31/lib/node_modules"
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/Applications/MAMP/Library/bin:/Users/joemurphy/pear/bin:/Users/joemurphy/pear/share/pear:$PATH"
+export PATH="/Users/JosephMurphy/Library/Python/2.7/bin:$PATH"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -52,6 +53,11 @@ nh() {
     nohup "$@" &>/dev/null &
 }
 
+#export WORKON_HOME=$HOME/code/.virtualenvs
+#export PROJECT_HOME=$HOME/code
+#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # load virtualenvwrapper for python (after custom PATHs)
 venvwrap="virtualenvwrapper.sh"
 /usr/bin/which -s $venvwrap
