@@ -84,4 +84,4 @@ alias vil='vi `ls -t | head -n 1`'
 alias vim='/usr/local/bin/vim'
 
 #eval $(thefuck --alias)
-git config --global core.editor /usr/bin/vim
+#source /usr/local/bin/virtualenvwrapper.sh
