@@ -9,10 +9,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'flazz/vim-colorschemes'
-
+Plugin 'vim-colorschemes'
 
 
 call vundle#end()            " required
@@ -69,7 +66,9 @@ command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 " Tabs on PHP files
 autocmd Filetype php setlocal noexpandtab
 
-call pathogen#infect()
+"call pathogen#infect()
+execute pathogen#infect()
+
 
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
