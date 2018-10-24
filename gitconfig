@@ -1,3 +1,6 @@
 [user]
-    name = Joe Murphy
-    username = freejoe76
+	name = freejoe76
+	username = freejoe76
+	email = joe.murphy@gmail.com
+[core]
+	editor = /usr/bin/vim
