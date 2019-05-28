@@ -78,3 +78,4 @@ complete -o nospace -F _wp_complete wp
 #export PATH="/Users/joemurphy/anaconda3/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+source ~/.git-completion.bash

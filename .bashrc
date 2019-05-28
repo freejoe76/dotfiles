@@ -4,12 +4,13 @@ export NODE_PATH="/usr/local/Cellar/node/0.10.31/lib/node_modules"
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/Applications/MAMP/Library/bin:/Users/joemurphy/pear/bin:/Users/joemurphy/pear/share/pear:$PATH"
 export PATH="/Users/JosephMurphy/Library/Python/2.7/bin:$PATH"
+export PATH="/usr/local/Cellar/libpq/11.0/bin:$PATH"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=15000
+HISTSIZE=150000
 HISTFILESIZE=125500
 HISTIGNORE="&:ls:[bf]g:exit"
 HISTTIMEFORMAT="%F %T "
@@ -65,6 +66,7 @@ if [ $? -eq 0 ]; then
     venvwrap=`/usr/bin/which $venvwrap`
     source $venvwrap
 fi
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -91,3 +93,7 @@ alias vim='/usr/local/bin/vim'
 
 #eval $(thefuck --alias)
 git config --global core.editor /usr/bin/vim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
