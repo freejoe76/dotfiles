@@ -33,3 +33,4 @@ alias ssha='ssh -i ~/pempempem.pem ubuntu@ec2-35-165-237-90.us-west-2.compute.am
 alias 3up='cd ../../../'
 alias lemon='scp -r `echo $1` mi:~/projects/`echo $1`'
 alias test='echo "`echo $1` `echo $1`"'
+alias pir='pip install -r requirements.txt'
