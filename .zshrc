@@ -73,18 +73,14 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-alias bps='source ~/.bashrc'
-alias bp='vi ~/.bashrc'
+alias bps='source ~/.zshrc'
+alias bp='vi ~/.zshrc'
 alias ss='source source.bash || source ../source.bash || source ../../source.bash'
 alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
 alias crimes='cd ~/work/crime; ss; cd crimeparse'
 alias sites='cd ~/work/crimesite; ss; cd site/public'
 alias sads='cd ~/sad_ebook/; ss'
 alias phperr='tail -f /Applications/MAMP/logs/php_error.log'
-alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
 export WORKON_HOME=~/Env
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 # Edit the last-edited file in the directory you're in.
