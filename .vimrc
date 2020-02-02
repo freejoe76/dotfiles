@@ -8,9 +8,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-colorschemes'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,8 +40,7 @@ set showcmd
 set hidden
 set history=200
 set scrolloff=3
-set wildmenu
-set expandtab
+"set wildmenu
 set tabstop=4 
 set shiftwidth=4 
 set expandtab
@@ -131,6 +129,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " Auto-close nerdtree on exit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+colorscheme fromthehell
 "colorscheme greens
 function! Tab2()
   set tabstop=2     " Size of a hard tabstop (ts).
