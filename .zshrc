@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/joemurphy/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,3 +99,33 @@ source ~/cu
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=150000
+HISTFILESIZE=125500
+HISTIGNORE="&:ls:[bf]g:exit"
+HISTTIMEFORMAT="%F %T "
+PROMPT_COMMAND='history -a'
+HISTCONTROL=ignoredups:ignorespace
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lowercase='for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done'
+
+alias bps='source ~/.zshrc'
+alias bp='vi ~/.zshrc'
+alias ss='source source.bash || source ../source.bash || source ../../source.bash'
+alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
+alias vil='vi `ls -t | head -n 1`'
+alias vim='/usr/local/bin/vim'
+
+git config --global core.editor /usr/bin/vim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
