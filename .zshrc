@@ -2,13 +2,14 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="flazz"
+ZSH_THEME="pygmalion"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +73,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
-source ~/cu
 
 # User configuration
 
@@ -101,7 +101,8 @@ source ~/cu
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # append to the history file, don't overwrite it
-shopt -s histappend
+if type "shopt" > /dev/null; then shopt -s histappend; fi
+setopt APPEND_HISTORY
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=150000
