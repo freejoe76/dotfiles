@@ -78,8 +78,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 alias bps='source ~/.bashrc'
 alias bp='vi ~/.bashrc'
-alias ss='source source.bash || source ../source.bash || source ../../source.bash'
-alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
 alias crimes='cd ~/work/crime; ss; cd crimeparse'
 alias sites='cd ~/work/crimesite; ss; cd site/public'
 alias sads='cd ~/sad_ebook/; ss'
