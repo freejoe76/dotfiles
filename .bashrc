@@ -23,10 +23,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lowercase='for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done'
 
-# Edit the last-edited file in the directory you're in.
-alias vil='vi `ls -t | head -n 1`'
-#alias vim='/usr/loc
-
 ex () {
     if [ -f $1 ] ; then
         case $1 in
@@ -54,20 +50,6 @@ nh() {
     nohup "$@" &>/dev/null &
 }
 
-#export WORKON_HOME=$HOME/code/.virtualenvs
-#export PROJECT_HOME=$HOME/code
-#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-# load virtualenvwrapper for python (after custom PATHs)
-venvwrap="virtualenvwrapper.sh"
-/usr/bin/which -s $venvwrap
-if [ $? -eq 0 ]; then
-    venvwrap=`/usr/bin/which $venvwrap`
-    source $venvwrap
-fi
-#source /usr/local/bin/virtualenvwrapper.sh
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -78,12 +60,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 alias bps='source ~/.bashrc'
 alias bp='vi ~/.bashrc'
-alias crimes='cd ~/work/crime; ss; cd crimeparse'
-alias sites='cd ~/work/crimesite; ss; cd site/public'
-alias sads='cd ~/sad_ebook/; ss'
-alias phperr='tail -f /Applications/MAMP/logs/php_error.log'
-alias sockit='ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock && sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock'
-export WORKON_HOME=~/Env
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 # Edit the last-edited file in the directory you're in.
 alias vil='vi `ls -t | head -n 1`'
