@@ -35,18 +35,16 @@ alias ddb='git checkout dev.db'
 alias gds='git diff --stat'
 alias gd='git diff'
 alias bpa='vi ~/.bash_aliases'
+alias aaa='vi ~/.aliases'
 alias lsrecent='ls -ltd $(find .)'
 alias sizes='du -d 1 | sort -n'
 alias cdw='deactivate; cd ~/work/'
 alias dsk="find . -name ".DS_Store" -exec git rm '{}' \;"
 alias ppp='curl -X PURGE `echo $1`'
-alias dall='deployqa; deployprod'
+
 alias lsh='ls -lth | head'
 alias lshh='ls -lth | head -n 20'
-alias dqa='deployqa'
-alias dprod='deployprod'
-alias pq='`^prod^qa`'
-alias qp='`^qa^prod`'
+
 # Make the command-line stat command on the mac less janky:
 alias stat='stat -x'
 alias ssha='ssh -i ~/pempempem.pem ubuntu@ec2-35-165-237-90.us-west-2.compute.amazonaws.com'
