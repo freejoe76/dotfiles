@@ -56,3 +56,16 @@ alias test='echo "`echo $1` `echo $1`"'
 alias pir='pip install -r requirements.txt'
 alias ss='source source.bash || source ../source.bash || source ../../source.bash'
 alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
+alias cdcs='cd /Users/JosephMurphy/work/dailygraphics/coronavirus-scripts'
+alias zwp='zsh wizard.zsh prod `echo $1`'
+
+# COVID
+alias gppbc='gppb coronavirus-tracker'
+alias gpbc='gpb coronavirus-tracker'
+alias gcoc='git checkout coronavirus-tracker'
+alias datac='python3 update_data.py -m all'
+alias nrd='npm run dev'
+
+alias gs='git stash'
+alias nrgi='npm run googlesheet:ingest'
+alias nrdg='npm run deploy:graphic'
