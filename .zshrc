@@ -14,9 +14,9 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "flazz"
   "pygmalion"
 )
-ZSH_THEME="flazz"
 ZSH_THEME="pygmalion"
 ZSH_THEME="random"
+ZSH_THEME="flazz"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -38,7 +38,7 @@ ZSH_THEME="random"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -140,3 +140,6 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
 unset LESS
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
