@@ -139,3 +139,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 unset LESS
+
+source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate
+cd fun/storymake
+python3 salutation.py --access_internet
+cd -
+deactivate
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/Users/joemurphy/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
