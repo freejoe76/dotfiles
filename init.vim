@@ -3,9 +3,16 @@ if &compatible
 endif
 packadd minpac
 call minpac#init()
+call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('nathanaelkane/vim-indent-guides')
+call minpac#add('jistr/vim-nerdtree-tabs')
+" Nerd commenter allows you to comment out (VISUAL mode) selected code using `,cc` and `,cu`
+call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('PhilRunninger/nerdtree-buffer-ops')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
 command! Pu call minpac#update()
 command! Pc call minpac#clean()
 
@@ -42,12 +49,19 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
+set hlsearch
+set wildmode=longest,list
+set cc=80
+set showmatch
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
 " NERD_tree config
 let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -55,11 +69,23 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+map <C-n> :NERDTreeToggle<CR>
+
 
 
 colorscheme one
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
+" Shift key fixes
+cmap WQ wq
+cmap wQ wq
+cmap Tabe tabe
+cmap Bq bq
+cmap Bn bn
+cmap BN bn
+cmap Bp bp
+cmap BP bp
+cmap bclose Bclose
