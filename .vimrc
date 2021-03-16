@@ -1,17 +1,17 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'godlygeek/tabular'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-colorschemes'
+"Plugin 'vim-colorschemes'
 
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -104,9 +104,8 @@ syntax sync fromstart
 
 " From https://github.com/aaronjorbin/.vim/blob/master/vimrc
 set backspace=indent,eol,start " make backspace a more flexible
-set backup " make backup files 
-set backupdir=~/.vim/tmp
-set directory=~/.vim/tmp " directory to place swap files in
+set nobackup " make backup files 
+"set directory=~/.vim/tmp " directory to place swap files in
 set fileformats=unix,dos,mac " support all three, in this order
 set iskeyword+=_,$,@,%,# " none of these are word dividers 
 "set mouse=a " use mouse everywhere
@@ -129,7 +128,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " Auto-close nerdtree on exit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-colorscheme fromthehell
+"colorscheme fromthehell
 "colorscheme greens
 function! Tab2()
   set tabstop=2     " Size of a hard tabstop (ts).

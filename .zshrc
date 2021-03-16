@@ -14,9 +14,9 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "flazz"
   "pygmalion"
 )
-ZSH_THEME="flazz"
 ZSH_THEME="pygmalion"
 ZSH_THEME="random"
+ZSH_THEME="flazz"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -38,7 +38,7 @@ ZSH_THEME="random"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -126,10 +126,10 @@ alias l='ls -CF'
 alias lowercase='for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done'
 
 alias bps='source ~/.zshrc'
-alias bp='vi ~/.zshrc'
+alias bp='nvim ~/.zshrc'
 alias ss='source source.bash || source ../source.bash || source ../../source.bash'
 alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
-alias vil='vi `ls -t | head -n 1`'
+alias vil='nvim `ls -t | head -n 1`'
 alias vim='/usr/local/bin/vim'
 
 git config --global core.editor /usr/bin/vim
@@ -137,16 +137,24 @@ git config --global core.editor /usr/bin/vim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
 unset LESS
 
-source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate
-cd fun/storymake
-python3 salutation.py --access_internet
-cd -
-deactivate
+if [ -f ~/fun/storymake/STORYMAKE/bin/activate ]; then
+    source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate
+    cd fun/storymake
+    python3 salutation.py --access_internet
+    cd -
+    deactivate
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export PATH="/Users/joemurphy/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+source ~/.zsh_prompt
