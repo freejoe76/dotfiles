@@ -126,10 +126,10 @@ alias l='ls -CF'
 alias lowercase='for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done'
 
 alias bps='source ~/.zshrc'
-alias bp='vi ~/.zshrc'
+alias bp='nvim ~/.zshrc'
 alias ss='source source.bash || source ../source.bash || source ../../source.bash'
 alias cs='cat source.bash || cat ../source.bash || cat ../../source.bash'
-alias vil='vi `ls -t | head -n 1`'
+alias vil='nvim `ls -t | head -n 1`'
 alias vim='/usr/local/bin/vim'
 
 git config --global core.editor /usr/bin/vim
@@ -143,3 +143,5 @@ unset LESS
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+source ~/.zsh_prompt
