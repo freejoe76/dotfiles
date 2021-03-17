@@ -62,6 +62,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
+let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -77,6 +78,8 @@ colorscheme one
 "colorscheme Apprentice
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='base16'
+let g:airline_theme='molokai'
+let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
