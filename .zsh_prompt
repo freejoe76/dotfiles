@@ -38,21 +38,28 @@ function random_el () {
   echo ${array[$(jot -r 1 0 `expr ${#array[*]} - 1`)]}
 }
 
-FOODS="🍺 🍸 🍹 🍷 🍕 🍔 🍟 🍗 🍖 🍝 🍤 🍣 🍥 🍜 🍡 🍞 🍩 🍦 🍨 🍰 🍪 🍫 🍬 🍭 🍎 🍏 🍊 🍋 🍒 🍇 🍉 🍓 🍑 🍌 🍐 🍍 🍆 🍅  ")
-
-
+FOODS="🍺 🍸 🍹 🍷 🍕 🍔 🍟 🍗 🍖 🍝 🍤 🍣 🍥 🍜 🍡 🍞 🍩 🍦 🍨 🍰 🍪 🍫 🍬 🍭 🍎 🍏 🍊 🍋 🍒 🍇 🍉 🍓 🍑 🍌 🍐 🍍 🍆 🍅  "
+CLOTHES="🧳  🌂  ☂️  🧵  🧶  👓  🕶  🥽  🥼  🦺 👔 👕 👖 🧣 🧤 🧥 🧦 👗 👘 🥻 🩱 🩲 🩳 👙 👚 👛 👜"
+ANIMALS="🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐻 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🙈 🙉 🙊 🐒 🐔 🐧 🐦 🐤 🐣 🐥"
+SPORTS="⚽️ 🏀 🏈 ⚾️ 🥎 🎾 🏐 🏉 🥏 🎱 🪀 🏓 🏸 🏒 🏑 🥍 🏏 🥅 ⛳️ 🪁 🏹 🎣 🤿 🥊 🥋 🎽 🛹 🛷 ⛸ 🥌"
+SCIENCES="⚗️ 🔭 🔬 🕳 🩹 🩺 💊 💉 🩸 🧬 🦠 🧫 🧪 🌡"
 
 if [[ ! -v PROMPTMOJI ]]; then
+    FOOD=$(random_el $FOODS)
+    CLOTH=$(random_el $CLOTHES)
+    ANIMAL=$(random_el $ANIMALS)
+    SPORT=$(random_el $SPORTS)
     PROMPTMOJI='🎪🎪🎪🧶🧶🧶'
+    PROMPTMOJI="$FOOD $ANIMAL $SPORT"
 fi
 
-PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+PROMPT_SUFFIX=' in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
 $(virtualenv_info)$(prompt_char) '
+PROMPT='
+%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} '$PROMPT_SUFFIX
 
 PROMPT='
-%{$fg[magenta]%}%{$PROMPTMOJI%}%{$reset_color%}%{$fg[yellow]%}%{$EMOJITWO%}%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+%{$fg[magenta]%}%{$PROMPTMOJI%}%{$reset_color%}%{$fg[yellow]%}%{$EMOJITWO%}%{$reset_color%} '$PROMPT_SUFFIX
 
 RPROMPT='$(battery_charge)'
 
