@@ -49,8 +49,9 @@ if [[ ! -v PROMPTMOJI ]]; then
     CLOTH=$(random_el $CLOTHES)
     ANIMAL=$(random_el $ANIMALS)
     SPORT=$(random_el $SPORTS)
+    SCIENCE=$(random_el $SCIENCES)
     PROMPTMOJI='🎪🎪🎪🧶🧶🧶'
-    PROMPTMOJI="$FOOD $ANIMAL $SPORT"
+    PROMPTMOJI="$FOOD$ANIMAL$SPORT"
 fi
 
 PROMPT_SUFFIX=' in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)

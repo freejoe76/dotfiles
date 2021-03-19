@@ -38,7 +38,7 @@ alias bpa='vi ~/.bash_aliases'
 alias aaa='vi ~/.aliases'
 alias lsrecent='ls -ltd $(find .)'
 alias sizes='du -d 1 | sort -n'
-alias cdw='deactivate; cd ~/work/'
+alias cdw='cd ~/work/'
 alias dsk="find . -name ".DS_Store" -exec git rm '{}' \;"
 alias ppp='curl -X PURGE `echo $1`'
 
