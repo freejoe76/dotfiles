@@ -98,5 +98,5 @@ cmap bclose Bclose
 " Set firefox as defult browser
 " type gx to open a link
 " Test it here https://twitter.com/home whoa it works
-xdg-mime default firefox.desktop x-scheme-handler/http
-xdg-mime default firefox.desktop x-scheme-handler/https
+"xdg-mime default firefox.desktop x-scheme-handler/http
+"xdg-mime default firefox.desktop x-scheme-handler/https
