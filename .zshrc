@@ -76,7 +76,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python osx vi-mode)
+plugins=(git python macos vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
@@ -142,7 +142,7 @@ export NVM_DIR="$HOME/.nvm"
 unset LESS
 
 if [ -f ~/fun/storymake/STORYMAKE/bin/activate ]; then
-    source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate
+# source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate  # commented out by conda initialize
     cd fun/storymake
     python3 salutation.py --access_internet
     cd -
@@ -158,3 +158,54 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 source ~/.zsh_prompt
+alias zdev='zsh wizard.zsh dev'
+alias zprod='zsh wizard.zsh prod'
+alias texts='date; cp texture*.png textures/; rm textures/*1000px*; cp ada*png textures/; cp textures/* ~/Documents/drawings/textures/; date'
+alias synctexture='date; cd ~/Documents/drawings/; cp /Volumes/drawings/drawings/texture*.png textures/; cp /Volumes/drawings/drawings/ada*.png textures/; cp /Volumes/drawings/drawings/texture*.png /Volumes/drawings/drawings/textures/; rm /Volumes/drawings/drawings/textures/*1000px*; rm textures/*1000px*; date'
+
+# Maybe this will fix psycopg2
+#export PATH="$PATH:/Library/PostgreSQL/12/bin:$PATH"
+#export PATH="/usr/local/opt/libpq/bin:$PATH"
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/a206599360/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/a206599360/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/a206599360/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/a206599360/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+export PATH="$HOME/.local/bin:$PATH"
