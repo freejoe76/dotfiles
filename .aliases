@@ -64,3 +64,8 @@ alias gs='git stash'
 alias nrd='npm run dev'
 alias nrgi='npm run googlesheet:ingest'
 alias nrdg='npm run deploy:graphic'
+alias history='history -i'
+
+alias diskleft='df -h'
+alias cd5='cd ~/work/xyears/fiveyears/; ss && runs'
+alias cdp='cd ~/work/portfolio/portfolio; ss && runss'
