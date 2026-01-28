@@ -118,6 +118,7 @@ HISTIGNORE="&:ls:[bf]g:exit"
 HISTTIMEFORMAT="%F %T "
 PROMPT_COMMAND='history -a'
 HISTCONTROL=ignoredups:ignorespace
+setopt extendedhistory
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -141,21 +142,7 @@ export NVM_DIR="$HOME/.nvm"
 
 unset LESS
 
-if [ -f ~/fun/storymake/STORYMAKE/bin/activate ]; then
-# source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate  # commented out by conda initialize
-    cd fun/storymake
-    python3 salutation.py --access_internet
-    cd -
-    deactivate
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="/Users/joemurphy/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 
 source ~/.zsh_prompt
 alias zdev='zsh wizard.zsh dev'
