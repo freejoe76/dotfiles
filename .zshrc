@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -111,14 +115,15 @@ source ~/.aliases
 if type "shopt" > /dev/null; then shopt -s histappend; fi
 setopt APPEND_HISTORY
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=150000
-HISTFILESIZE=125500
+SAVEHIST=150000
 HISTIGNORE="&:ls:[bf]g:exit"
 HISTTIMEFORMAT="%F %T "
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND='history 1 -a'
 HISTCONTROL=ignoredups:ignorespace
 setopt extendedhistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # some more ls aliases
 alias ll='ls -alF'
