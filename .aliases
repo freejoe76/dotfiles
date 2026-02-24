@@ -60,3 +60,7 @@ alias gs='git stash'
 alias nrd='npm run dev'
 alias nrgi='npm run googlesheet:ingest'
 alias nrdg='npm run deploy:graphic'
+
+alias prs='python3 -m http.server'
+alias act='source `echo $1`/bin/activate'
+

@@ -34,7 +34,7 @@ set tabstop=4                           " Insert 4 spaces for a tab
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter 
 set expandtab                           " Converts tabs to spaces
-set smartindent                         " Makes indenting smart
+"set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
 set number                              " Line numbers
@@ -47,11 +47,12 @@ set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
-set clipboard=unnamedplus               " Copy paste between vim and everything else
+set clipboard+=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
 set hlsearch
 set wildmode=longest,list
 set cc=80
+set cc=120
 set showmatch
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
@@ -75,7 +76,14 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 colorscheme one
-"colorscheme Apprentice
+colorscheme Apprentice
+colorscheme iceberg
+colorscheme ayu
+colorscheme gruvbox
+colorscheme sonokai
+
+
+"colorscheme everforest
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='base16'
 let g:airline_theme='molokai'
@@ -94,6 +102,10 @@ cmap BN bn
 cmap Bp bp
 cmap BP bp
 cmap bclose Bclose
+" Disable the new Y mapping
+nnoremap Y Y
+
+
 
 " Set firefox as defult browser
 " type gx to open a link
