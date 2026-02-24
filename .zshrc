@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -111,13 +115,15 @@ source ~/.aliases
 if type "shopt" > /dev/null; then shopt -s histappend; fi
 setopt APPEND_HISTORY
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=150000
-HISTFILESIZE=125500
+SAVEHIST=150000
 HISTIGNORE="&:ls:[bf]g:exit"
 HISTTIMEFORMAT="%F %T "
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND='history 1 -a'
 HISTCONTROL=ignoredups:ignorespace
+setopt extendedhistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -141,20 +147,57 @@ export NVM_DIR="$HOME/.nvm"
 
 unset LESS
 
-if [ -f ~/fun/storymake/STORYMAKE/bin/activate ]; then
-    source /Users/joemurphy/fun/storymake/STORYMAKE/bin/activate
-    cd fun/storymake
-    python3 salutation.py --access_internet
-    cd -
-    deactivate
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="/Users/joemurphy/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
 source ~/.zsh_prompt
+alias zdev='zsh wizard.zsh dev'
+alias zprod='zsh wizard.zsh prod'
+alias texts='date; cp texture*.png textures/; rm textures/*1000px*; cp ada*png textures/; cp textures/* ~/Documents/drawings/textures/; date'
+alias synctexture='date; cd ~/Documents/drawings/; cp /Volumes/drawings/drawings/texture*.png textures/; cp /Volumes/drawings/drawings/ada*.png textures/; cp /Volumes/drawings/drawings/texture*.png /Volumes/drawings/drawings/textures/; rm /Volumes/drawings/drawings/textures/*1000px*; rm textures/*1000px*; date'
+
+# Maybe this will fix psycopg2
+#export PATH="$PATH:/Library/PostgreSQL/12/bin:$PATH"
+#export PATH="/usr/local/opt/libpq/bin:$PATH"
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/a206599360/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/a206599360/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/a206599360/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/a206599360/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+export PATH="$HOME/.local/bin:$PATH"
