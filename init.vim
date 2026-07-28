@@ -5,8 +5,10 @@ packadd minpac
 call minpac#init()
 call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('scrooloose/nerdtree')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('nvim-lualine/lualine.nvim')
+call minpac#add('nvim-tree/nvim-web-devicons')
+"call minpac#add('vim-airline/vim-airline')
+"call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('nathanaelkane/vim-indent-guides')
 call minpac#add('jistr/vim-nerdtree-tabs')
 " Nerd commenter allows you to comment out (VISUAL mode) selected code using `,cc` and `,cu`
@@ -36,11 +38,11 @@ set smarttab                            " Makes tabbing smarter
 set expandtab                           " Converts tabs to spaces
 "set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
-set laststatus=2                        " Always display the status line
+set laststatus=3                        " Always display the status line
 set number                              " Line numbers
 set cursorline                          " Enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
-set showtabline=2                       " Always show tabs
+"set showtabline=2                       " Always show tabs
 "set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
@@ -84,13 +86,25 @@ colorscheme sonokai
 
 
 "colorscheme everforest
-" https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='base16'
-let g:airline_theme='molokai'
-let g:airline_theme='wombat'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+
+lua << EOF
+require('lualine').setup {
+  options = {
+    theme = 'auto',
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+    globalstatus = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'},
+  },
+}
+EOF
 
 " Shift key fixes
 cmap WQ wq
